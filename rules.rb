@@ -26,10 +26,6 @@ Maid.rules do
   # **NOTE:** It's recommended you just use this as a template; if you run these rules on your machine without knowing
   # what they do, you might run into unwanted results!
 
-  rule 'Maid greeting' do
-    exec("terminal-notifier -title 'Maid ❤︎' -message 'Click me to see the log.' -subtitle 'I have cleaned your mess.'  -execute 'open /Users/woramet/.maid/maid.log' -appIcon /Users/woramet/.maid/maid.jpg")
-  end
-
   rule 'Linux ISOs, etc' do
     trash(dir('~/Downloads/*.iso'))
   end
@@ -111,4 +107,9 @@ Maid.rules do
       end
     end
   end
+  
+  rule 'Maid message' do
+      exec("terminal-notifier -title 'Maid ❤︎' -message 'Click me to see the log.' -subtitle 'I have cleaned your mess.'  -execute 'open /Users/woramet/.maid/maid.log' -appIcon /Users/woramet/.maid/maid.jpg")
+  end
+  
 end
