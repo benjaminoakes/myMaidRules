@@ -46,16 +46,8 @@ Maid.rules do
     trash(found)
   end
 
-  rule 'Old png' do
-    dir('~/Desktop/*.png').each do |path|
-      if 1.week.since?(accessed_at(path))
-	move(path, '~/Desktop/PileStuff/Old_Images/')
-      end
-    end
-  end
-
-  rule 'Old jpg' do
-    dir('~/Desktop/*.jpg').each do |path|
+  rule 'Old images' do
+    dir('~/Desktop/*.{jpg, jpeg, png}').each do |path|
       if 1.week.since?(accessed_at(path))
 	move(path, '~/Desktop/PileStuff/Old_Images/')
       end
@@ -71,7 +63,7 @@ Maid.rules do
   end
 
   rule 'Old stuff' do
-    dir('~/Desktop/*').each do |path|
+    dir('~/Desktop/.*').each do |path|
       if 1.week.since?(accessed_at(path))
 	move(path, '~/Desktop/PileStuff/Old_Stuffs/')
       end
